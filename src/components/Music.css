@@ -1,0 +1,110 @@
+.music {
+  width: 100vw;
+  padding: 80px 20px;
+  background: #f8f0eb; /* celeste/flamenco pastel */
+  color: #3d2b23;
+  display: flex;
+  justify-content: center;
+}
+
+.music-container {
+  display: flex;
+  max-width: 1200px;
+  gap: 40px;
+  align-items: flex-start;
+  flex-wrap: wrap; /* permite que en pantallas pequeñas se ajusten */
+}
+
+.music-cover {
+  display: block;
+}
+
+.music-cover img {
+  width: 300px;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+.music-list {
+  flex: 1;
+}
+
+.track {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 24px;
+}
+
+.track h3 {
+  font-size: 1.2rem;
+  margin-right: 16px;
+}
+
+.track-links a {
+  margin-left: 8px;
+  color: #3d2b23;
+  font-size: 1.4rem;
+  transition: all 0.3s ease;
+}
+
+.track-links a:hover {
+  color: #ff7f7f; /* un toque cálido al pasar el mouse */
+  transform: scale(1.2);
+}
+
+/* ================== RESPONSIVE ================== */
+@media (max-width: 768px) {
+  .music-container {
+    flex-direction: column; /* imagen arriba, texto debajo */
+    align-items: center;
+    gap: 24px;
+  }
+
+  .music-cover {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+  }
+
+  .music-cover img {
+    max-width: 80%;
+    height: auto;
+    border-radius: 8px;
+  }
+
+  .music-list {
+    width: 100%;
+  }
+
+  .track {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin-bottom: 24px;
+  }
+
+  .track h3 {
+    margin-bottom: 8px;
+      font-size: 1rem;
+  }
+
+  .track-links a {
+
+  font-size: 1.1rem;
+  
+}
+}
+
+/* Para móviles muy pequeños */
+@media (max-width: 480px) {
+  .music-container {
+    gap: 16px;
+  }
+
+  .music-cover img {
+    max-width: 90%;
+  }
+}
+

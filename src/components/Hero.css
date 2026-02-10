@@ -1,0 +1,119 @@
+/* Contenedor principal */
+.hero {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-size: cover;
+    background-position: center;
+  }
+  .hero-video {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: contain; /* <--- cambia cover por contain */
+    z-index: 0;
+  }
+  
+  
+  /* Overlay cálido pastel */
+  .overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(255, 240, 220, 0.35);
+    z-index: 1;
+  }
+  
+  
+  /* Grano / noise (más sutil, tipo película) */
+  .hero::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: var(--noise);
+    opacity: 0.05;
+    pointer-events: none;
+    z-index: 3;
+  }
+  
+  /* Contenido centrado */
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+  }
+  
+  /* Logo */
+  .hero-logo {
+    width: min(70vw, 520px);
+    max-width: 100%;
+    margin-bottom: 28px;
+    filter: saturate(1.1);
+    animation: fadeUp 1s ease-out forwards;
+  }
+  
+  /* Descripción */
+
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+  
+    transform: translateY(20vh);
+  }
+  
+  /* CTA / botón escuchar */
+  .cta {
+    border: 2px solid #3a2f4d;
+    padding: 16px 44px;
+    text-decoration: none;
+    color: #3a2f4d;
+  
+    letter-spacing: 0.25em;
+    font-size: 0.9rem;
+    font-weight: 600;
+  
+    background: rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(6px);
+  
+    display: inline-block;
+    transition: all 0.35s ease;
+  }
+  
+  .cta:hover {
+    background: #deab98;
+    color: #ffffff;
+    border-color: #ffffff;
+    transform: translateY(-3px);
+  }
+  
+  
+  /* Animación fade-up */
+  @keyframes fadeUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  /* Responsive */
+  @media (max-width: 768px) {
+    .hero-logo {
+      width: 80vw;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .hero-content {
+      transform: translateY(12vh);
+    }
+  }
+  

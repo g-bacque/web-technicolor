@@ -1,0 +1,85 @@
+/* Contenedor principal del Bio */
+.bio {
+  width: 100vw;
+  position: relative;
+  padding-top: 120px; /* espacio para header */
+  background: #a8dff0; /* celeste pastel (puedes cambiar a #ffd6d6 si quieres flamenco) */
+  display: flex;
+  justify-content: center;
+}
+
+/* Fondo con la imagen de la banda */
+.bio-background {
+  position: relative;
+  width: 100%;
+  /* Mantener proporción de la imagen: 45.11 x 50.8 */
+  padding-top: calc(46.57 / 45.11 * 100%); /* altura relativa al ancho */
+  background-image: url("../assets/images/bio-photo.png");
+  background-repeat: no-repeat;
+  background-position: top center; /* centramos la parte superior */
+  background-size: contain; /* evita recorte de la imagen */
+  display: flex;
+  justify-content: center;
+  align-items: flex-start; /* texto arriba */
+  overflow: visible;
+}
+
+/* Texto superpuesto */
+.bio-text-overlay {
+  position: absolute;
+
+    top: clamp(5%, 10vw, 15%); /* posición de 5% a 15% según ancho */
+
+  width: 100%;
+  max-width: 600px;
+  text-align: center;
+  color: #4b3b33; /* marrón cálido */
+  font-family: "Space Grotesk", sans-serif;
+  animation: fadeUp 1s ease-out forwards;
+  opacity: 0; /* inicia invisible para animación */
+}
+
+/* Títulos y párrafos */
+.bio-text-overlay h2 {
+  font-family: "Clash Display", sans-serif;
+  font-size: clamp(2rem, 4vw, 3.2rem); /* escala entre 2rem y 3.2rem */
+  margin-bottom: 15px;
+  letter-spacing: 0.18em;
+}
+
+.bio-text-overlay p {
+  font-size: clamp(1rem, 2vw, 1.3rem); /* escala entre 1rem y 1.3rem */
+  line-height: 1.7;
+  opacity: 0.9;
+}
+
+
+
+/* Animación fade-up */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .bio-text-overlay {
+    top: 5%; /* sube el contenedor un poco más */
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+}
+
+@media (max-width: 480px) {
+  .bio-text-overlay {
+    top: -10%; /* aún más arriba en móviles muy pequeños */
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+}

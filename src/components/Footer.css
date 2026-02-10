@@ -1,0 +1,65 @@
+.footer {
+    position: relative;
+    background: #d9ac94; /* lila pastel */
+    color: #3a2f4d;
+    padding: 56px 20px;
+    text-align: center;
+    overflow: hidden;
+  }
+  
+  /* Glow suave de cierre */
+  .footer::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(
+        circle at 50% 0%,
+        rgba(255, 190, 200, 0.35),
+        transparent 60%
+      );
+    z-index: 0;
+    pointer-events: none;
+  }
+  
+  .footer > * {
+    position: relative;
+    z-index: 1;
+  }
+  
+  .footer-content {
+    max-width: 1280px;
+    margin: 0 auto;
+  }
+  
+  /* Texto */
+  .footer p {
+    margin-bottom: 24px;
+    font-family: "Space Grotesk", sans-serif;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    font-size: 0.85rem;
+    opacity: 0.85;
+  }
+  
+  /* Links */
+  .footer-links {
+    display: flex;
+    justify-content: center;
+    gap: 28px;
+  }
+  
+  /* Iconos */
+  .icon-link svg {
+    width: 30px;
+    height: 30px;
+    fill: #6a5b8c; /* violeta suave */
+    transition: transform 0.35s ease, fill 0.35s ease;
+  }
+  
+  /* Hover disco */
+  .icon-link:hover svg {
+    fill: #ff8fab; /* rosa pastel */
+    transform: scale(1.25) rotate(-8deg);
+  }
+  
