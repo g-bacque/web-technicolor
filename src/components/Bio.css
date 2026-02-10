@@ -2,18 +2,19 @@
 .bio {
   width: 100vw;
   position: relative;
-  padding-top: 120px; /* espacio para header */
-  background: #a8dff0; /* celeste pastel (puedes cambiar a #ffd6d6 si quieres flamenco) */
+  padding-top: 120px; /* deja espacio para header */
+  background: #a8dff0;
   display: flex;
   justify-content: center;
 }
+
 
 /* Fondo con la imagen de la banda */
 .bio-background {
   position: relative;
   width: 100%;
-  /* Mantener proporción de la imagen: 45.11 x 50.8 */
-  padding-top: calc(46.57 / 45.11 * 100%); /* altura relativa al ancho */
+  /* Mantener proporción de la imagen: 45.11 x 46.57 */
+  padding-top: calc(46.57 / 45.11 * 100%);
   background-image: url("../assets/images/bio-photo.png");
   background-repeat: no-repeat;
   background-position: top center; /* centramos la parte superior */
@@ -22,16 +23,16 @@
   justify-content: center;
   align-items: flex-start; /* texto arriba */
   overflow: visible;
+  z-index: 1;
 }
 
 /* Texto superpuesto */
 .bio-text-overlay {
   position: absolute;
-
-    top: clamp(5%, 10vw, 15%); /* posición de 5% a 15% según ancho */
-
+  top: clamp(5%, 10vw, 15%); /* posición dinámica según ancho */
   width: 100%;
   max-width: 600px;
+  min-width: 280px; /* evita texto demasiado estrecho */
   text-align: center;
   color: #4b3b33; /* marrón cálido */
   font-family: "Space Grotesk", sans-serif;
@@ -53,8 +54,6 @@
   opacity: 0.9;
 }
 
-
-
 /* Animación fade-up */
 @keyframes fadeUp {
   from {
@@ -67,19 +66,48 @@
   }
 }
 
-/* Responsive */
+/* Responsive tablets y móviles */
+@media (max-width: 1024px) {
+  .bio-background {
+    background-position: center top; /* imagen centrada horizontalmente */
+  }
+}
+
 @media (max-width: 768px) {
+    .bio {
+    padding-top: 140px; /* ajusta según altura total del header en móvil */
+  }
   .bio-text-overlay {
     top: 5%; /* sube el contenedor un poco más */
-    padding-left: 30px;
-    padding-right: 30px;
+    padding-left: 20px;
+    padding-right: 20px;
   }
 }
 
 @media (max-width: 480px) {
   .bio-text-overlay {
-    top: -10%; /* aún más arriba en móviles muy pequeños */
-    padding-left: 30px;
-    padding-right: 30px;
+    top: 3%; /* aún más arriba en móviles muy pequeños */
+    padding-left: 15px;
+    padding-right: 15px;
   }
+  .bio-background {
+    display: flex;
+    flex-direction: column-reverse; /* texto arriba */
+    justify-content: flex-start;
+    padding-top: calc(46.57 / 45.11 * 100%); /* ⬅️ mantenemos proporción */
+  }
+
+  .bio-text-overlay {
+    position: relative;
+    top: auto;
+    transform: none;
+    margin-bottom: 24px;
+    padding: 20px 16px;
+    opacity: 1;
+    animation: none;
+    font-size: smaller;
+  }
+
+  
+
 }

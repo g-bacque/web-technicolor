@@ -1,13 +1,18 @@
 .music {
   width: 100vw;
-  padding: 80px 20px;
-  background: #f8f0eb; /* celeste/flamenco pastel */
+  padding: 120px 20px 100px; /* + aire arriba */
+  background: #f8f0eb;
   color: #3d2b23;
   display: flex;
   justify-content: center;
+
+  scroll-margin-top: 80px; /* header desktop */
 }
 
+
 .music-container {
+  position: relative;
+  z-index: 1;
   display: flex;
   max-width: 1200px;
   gap: 40px;
@@ -56,6 +61,10 @@
 
 /* ================== RESPONSIVE ================== */
 @media (max-width: 768px) {
+  .music {
+    padding-top: 160px;      /* más aire visual */
+    scroll-margin-top: 110px; /* header móvil real */
+  }
   .music-container {
     flex-direction: column; /* imagen arriba, texto debajo */
     align-items: center;
@@ -99,6 +108,7 @@
 
 /* Para móviles muy pequeños */
 @media (max-width: 480px) {
+  
   .music-container {
     gap: 16px;
   }
@@ -107,4 +117,5 @@
     max-width: 90%;
   }
 }
+
 

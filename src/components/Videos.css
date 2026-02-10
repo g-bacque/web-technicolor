@@ -90,4 +90,10 @@
   .video-container {
     animation: floatVideo 9s ease-in-out infinite;
   }
-  
+
+
+  @media (max-width: 768px) {
+  .videos {
+    padding-top: 140px; /* ajusta según altura total del header en móvil */
+  }
+}

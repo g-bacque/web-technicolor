@@ -68,5 +68,13 @@
       gap: 1rem;
       margin-top: 10px;
     }
+
+      .nav a {
+    margin-left: 0;   /* 👈 CLAVE */
   }
+
+    
+  }
+
+  
   
