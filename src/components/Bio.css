@@ -85,29 +85,29 @@
 }
 
 @media (max-width: 480px) {
-  .bio-text-overlay {
-    top: 3%; /* aún más arriba en móviles muy pequeños */
-    padding-left: 15px;
-    padding-right: 15px;
-  }
   .bio-background {
     display: flex;
-    flex-direction: column-reverse; /* texto arriba */
-    justify-content: flex-start;
-    padding-top: calc(46.57 / 45.11 * 100%); /* ⬅️ mantenemos proporción */
+    justify-content: center; /* centra horizontalmente */
+    align-items: flex-start; /* mantiene la parte superior */
+    padding-top: calc(46.57 / 45.11 * 100%); /* mantiene proporción */
+    background-position: top center;
+    background-size: contain;
+    position: relative; /* necesario para que absolute funcione */
   }
 
   .bio-text-overlay {
-    position: relative;
-    top: auto;
-    transform: none;
-    margin-bottom: 24px;
-    padding: 20px 16px;
+    position: absolute; /* mantiene texto sobre la imagen */
+    top: -10%;             /* ajusta altura del texto sobre la imagen */
+    left: 50%;
+    transform: translateX(-50%); /* centra horizontalmente */
+    width: 90%;
+    max-width: 350px;
+    text-align: center;
+    font-size: clamp(0.9rem, 3vw, 1.1rem);
+    line-height: 1.4;
+    padding: 0 10px;
     opacity: 1;
     animation: none;
-    font-size: smaller;
   }
-
-  
-
 }
+
